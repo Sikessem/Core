@@ -7,15 +7,27 @@ test('globals')
     ->not->toBeUsed();
 
 test('classes')
-    ->expect('Sikessem\Skeleton')
+    ->expect('Sikessem\Values')
     ->toUseStrictTypes();
 
-test('contracts')
-    ->expect('Sikessem\Skeleton\Contracts')
+test('abstract classes')
+    ->expect('Sikessem\Values\Abstracts')
+    ->classes()
+    ->toBeAbstract()
+    ->toHavePrefix('Abstract');
+
+test('objects')
+    ->expect('Sikessem\Values\Objects')
+    ->classes()
+    ->toHaveSuffix('Object')
+    ->toHaveConstructor();
+
+test('types')
+    ->expect('Sikessem\Values\Types')
     ->interfaces()
-    ->toOnlyBeUsedIn('Sikessem\Skeleton', 'Sikessem\Skeleton\Contracts');
+    ->toOnlyBeUsedIn('Sikessem\Values', 'Sikessem\Values\Types');
 
 test('concerns')
-    ->expect('Sikessem\Skeleton\Concerns')
+    ->expect('Sikessem\Values\Concerns')
     ->traits()
-    ->toOnlyBeUsedIn('Sikessem\Skeleton', 'Sikessem\Skeleton\Concerns');
+    ->toOnlyBeUsedIn('Sikessem\Values', 'Sikessem\Values\Concerns');

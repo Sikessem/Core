@@ -1,13 +1,13 @@
 {
-    "name": "sikessem/skeleton",
-    "description": "📦️ Sikessem library builder template.",
-    "homepage": "https://sikessem.github.io/packages/skeleton",
+    "type": "library",
+    "name": "sikessem/core",
+    "description": "Objects with strict types to manage PHP variables and values.",
+    "homepage": "https://packagist.com/packages/sikessem/core",
     "license": "MIT",
     "keywords": [
+        "php",
         "sikessem",
-        "package-skeleton",
-        "repository-template",
-        "php"
+        "core"
     ],
     "authors": [
         {
@@ -17,24 +17,24 @@
         }
     ],
     "support": {
-        "source": "https://github.com/sikessem/skeleton",
-        "issues": "https://github.com/sikessem/skeleton/issues",
+        "source": "https://github.com/sikessem/core",
+        "issues": "https://github.com/sikessem/core/issues",
         "chat": "https://github.com/orgs/sikessem/discussions"
     },
     "require": {
-        "php": "^8.1|^8.2"
+        "php": "^8.2||^8.3"
     },
     "require-dev": {
-        "sikessem/devtools": "^0.4.0"
+        "sikessem/devtools": "^0.8.0"
     },
     "autoload": {
         "psr-4": {
-            "Sikessem\\Skeleton\\": "src/"
+            "Sikessem\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Sikessem\\Skeleton\\Tests\\": "tests/"
+            "Sikessem\\Tests\\": "tests/"
         }
     },
     "scripts": {

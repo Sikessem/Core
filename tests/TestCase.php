@@ -1,9 +1,7 @@
 <?php
 
-namespace Sikessem\Skeleton\Tests;
+namespace Sikessem\Tests;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
-abstract class TestCase extends BaseTestCase
-{
-}
+abstract class TestCase extends BaseTestCase {}

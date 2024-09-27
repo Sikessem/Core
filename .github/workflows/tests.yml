@@ -1,0 +1,69 @@
+name: Tests
+
+permissions:
+  contents: read
+
+on: ['push', 'pull_request']
+
+jobs:
+  test:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      fail-fast: true
+      matrix:
+        operating-system: [ubuntu-latest]
+        php-version: [8.1, 8.2]
+        dependency-version: [prefer-lowest, prefer-stable]
+    name: 👷 CI PHP-${{ matrix.php-version }} ${{ matrix.dependency-version }} on ${{ matrix.operating-system }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cache dependencies
+        id: composer-cache
+        run: |
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.operating-system }}-dependencies-php-${{ matrix.php-version }}-composer-${{ hashFiles('composer.json') }}
+          restore-keys: |
+            ${{ runner.operating-system }}-dependencies-php-${{ matrix.php-version }}-composer-
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: curl, dom, gd, intl, mbstring, openssl, tokenizer, zip
+          ini-values: error_reporting=E_ALL
+          tools: composer:v2, php-cs-fixer, phpunit, vimeo/psalm
+          coverage: pcov
+
+      - name: Install dependencies
+        run: |
+          set -e
+          composer install -q --no-ansi --no-cache --no-interaction --no-scripts --no-progress --prefer-dist
+          composer update --${{ matrix.dependency-version }} --no-interaction --prefer-dist --no-progress
+
+      - name: Update dependencies with latest stable
+        if: matrix.dependency-version == 'prefer-stable'
+        run: composer update --prefer-stable
+
+      - name: Update dependencies with lowest stable
+        if: matrix.dependency-version == 'prefer-lowest'
+        run: composer update --prefer-stable --prefer-lowest
+
+      - name: 🧹 Check code lint
+        run: composer check
+
+      - name: ⚗️ Run static analysis
+        run: |
+          composer analyse
+          composer inspect
+
+      - name: ✅ Test features
+        run: composer test
+
+      - name: 🧪 Test the whole application
+        run: composer debug

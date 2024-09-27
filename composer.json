@@ -7,13 +7,32 @@
     "keywords": [
         "php",
         "sikessem",
-        "core"
+        "core",
+        "capsule",
+        "encapsulation",
+        "accessor",
+        "mutator",
+        "property",
+        "getter",
+        "setter",
+        "method",
+        "event",
+        "di",
+        "ioc",
+        "dic",
+        "container",
+        "psr",
+        "dependency-injection",
+        "injector",
+        "encapsulator",
+        "psr11",
+        "php"
     ],
     "authors": [
         {
             "name": "SIGUI Kessé Emmanuel",
-            "email": "contact@sigui.ci",
-            "homepage": "https://sigui.ci"
+            "email": "siguici@proton.me",
+            "homepage": "https://github.com/siguici"
         }
     ],
     "support": {
@@ -22,7 +41,9 @@
         "chat": "https://github.com/orgs/sikessem/discussions"
     },
     "require": {
-        "php": "^8.2||^8.3"
+        "php": "^8.2||^8.3",
+        "psr/container": "^2.0",
+        "sikessem/debugger": "^0.0.0"
     },
     "require-dev": {
         "sikessem/devtools": "^0.8.0"
@@ -41,7 +62,6 @@
         "analyse": "phpstan analyse --ansi --memory-limit=-1 --debug",
         "check": "pint --test -v",
         "debug": [
-            "@validate",
             "@check",
             "@analyse",
             "@inspect",
@@ -55,7 +75,6 @@
         ],
         "fix": [
             "@refactor",
-            "@sanitize",
             "@format",
             "@lint"
         ],
@@ -64,9 +83,7 @@
         "lint": "pint -v",
         "test": "pest --colors=always",
         "review": "rector --dry-run --debug",
-        "refactor": "rector",
-        "sanitize": "phpinsights fix",
-        "validate": "phpinsights analyse"
+        "refactor": "rector"
     },
     "extra": {
         "branch-alias": {

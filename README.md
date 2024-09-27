@@ -17,48 +17,45 @@
 [sikessem-logo]: https://github.com/sikessem/art/blob/HEAD/images/sikessem.svg
 [sikessem-link]: https://github.com/sikessem "Sikessem"
 
+[actions-icon]: https://github.com/sikessem/capsule/workflows/Tests/badge.svg
+[actions-link]: https://github.com/sikessem/capsule/actions "Capsule status"
+
 [php-icon]: https://img.shields.io/badge/PHP-ccc.svg?style=flat&logo=php
-[php-link]: https://github.com/sikessem/values/search?l=php "PHP code"
+[php-link]:  https://github.com/sikessem/capsule/search?l=php "PHP code"
 
-[packagist-version-icon]: https://img.shields.io/packagist/v/sikessem/values
-[packagist-version-link]: https://packagist.org/packages/sikessem/values "Values Releases"
+[packagist-version-icon]: https://img.shields.io/packagist/v/sikessem/capsule
+[packagist-version-link]: https://packagist.org/packages/sikessem/capsule "Capsule Releases"
 
-[packagist-download-icon]: https://img.shields.io/packagist/dt/sikessem/values
-[packagist-download-link]: https://packagist.org/packages/sikessem/values "Values Downloads"
-
-[actions-icon]: https://github.com/sikessem/values/workflows/CI/badge.svg
-[actions-link]: https://github.com/sikessem/values/actions "Values status"
+[packagist-download-icon]: https://img.shields.io/packagist/dt/sikessem/capsule
+[packagist-download-link]: https://packagist.org/packages/sikessem/capsule "Capsule Downloads"
 
 [pr-icon]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?color=brightgreen
-[pr-link]: https://github.com/sikessem/.github/blob/HEAD/CONTRIBUTING.md "PRs welcome!"
+[pr-link]: [contrib-link] "PRs welcome!"
 
-[twitter-icon]: https://img.shields.io/twitter/follow/sikessem.svg?label=@sikessem_tweets
+[twitter-icon]: https://img.shields.io/twitter/follow/sikessem_tweets.svg?label=@Sikessem_tweets
 [twitter-link]: https://twitter.com/intent/follow?screen_name=sikessem_tweets "Ping Sikessem"
 
 [license-icon]: https://img.shields.io/badge/license-MIT-blue.svg
-[license-link]: https://github.com/sikessem/values/blob/HEAD/LICENSE "Values License"
-[conduct-link]: https://github.com/sikessem/values/blob/HEAD/CODE_OF_CONDUCT.md
-[discuss-link]: https://github.com/orgs/sikessem/discussions
-[docs-link]: https://github.com/sikessem/values#readme "Values Documentation"
+[license-link]: https://github.com/sikessem/capsule/blob/HEAD/LICENSE "Capsule License"
+[conduct-link]: https://github.com/sikessem/capsule/blob/HEAD/CODE_OF_CONDUCT.md
+[contrib-link]: https://github.com/sikessem/capsule/blob/HEAD/CONTRIBUTING.md
+[discuss-link]: https://github.com/sikessem/community/discussions
 
 ***
 
-# PHP Value Objects
+# An Efficient Dependency Injector and Encapsulator
 
-Objects with strict types to manage PHP variables and values.
+Capsule is a library that uses a Container to manage dependencies and objects in an organized and centralized way, thus facilitating encapsulation.
 
 ## 🔖 Contents
 
-- [PHP Value Objects](#php-value-objects)
+- [An Efficient Dependency Injector and Encapsulator](#an-efficient-dependency-injector-and-encapsulator)
   - [🔖 Contents](#-contents)
   - [📋 Requirements](#-requirements)
-  - [🎉 Getting Started](#-getting-started)
-    - [⚡️ Installation](#️-installation)
-    - [🧑‍💻 Usage](#-usage)
-    - [🧪 Testing and debugging](#-testing-and-debugging)
-  - [📖 Documentation](#-documentation)
+  - [⚡️ Installation](#️-installation)
+  - [🧑‍💻 Usage](#-usage)
   - [👏 Contribution](#-contribution)
-    - [👷 Code of Conduct](#-code-of-conduct)
+    - [Code of Conduct](#code-of-conduct)
     - [👥 Contributing Guide](#-contributing-guide)
     - [🔒️ Good First Issues](#️-good-first-issues)
     - [💬 Discussions](#-discussions)
@@ -67,95 +64,139 @@ Objects with strict types to manage PHP variables and values.
 
 ## 📋 Requirements
 
-> - **Requires [PHP >=8.0](https://php.net/releases/)** (at least 8.0.30 recommended to avoid potential bugs).
+> - **Requires [PHP 8.1+](https://php.net/releases/)** (at least 8.1.14 recommended to avoid potential bugs).
 > - **Requires [Composer v2+](https://getcomposer.org/)** to manage PHP dependencies.
 
-## 🎉 Getting Started
+## ⚡️ Installation
 
-### ⚡️ Installation
+Install [Capsule](https://packagist.org/packages/sikessem/capsule) using [Composer](https://getcomposer.org/):
 
-Use [Composer](https://getcomposer.org/) to install `sikessem/values`:
+- By adding the `sikessem/capsule` dependency to your `composer.json` file:
 
-```bash
-composer require sikessem/values
-```
+    ```json
+    {
+        "require" : {
+            "sikessem/capsule": "^0.5"
+        }
+    }
+    ```
 
-### 🧑‍💻 Usage
+- Or by including the dependency:
 
-```php
-<?php
+    ```bash
+    composer require sikessem/capsule --no-dev
+    ```
 
-use Sikessem\Values\Value;
+## 🧑‍💻 Usage
 
-$two = Value::from(2); // 2
-$two->update(fn($val) => $val * $val); // 4
-$two->set(5); // 5
-```
+1. Define your custom components using Capsule's interfaces and traits:
 
-### 🧪 Testing and debugging
+    ```php
+    <?php
 
-🧹 Keep a modern codebase with **Pint**:
+    namespace Sikessem\Capsule\Sample;
 
-```bash
-composer lint
-```
+    use Sikessem\Capsule\Core\IsEncapsulated;
 
-⚗️ Run static analysis:
+    interface CustomInterface extends IsEncapsulated
+    {
+        public function getName(): string;
 
-- Using **PHPStan**:
+        public function setName(string $name): void;
+    }
+    ```
 
-```bash
-composer analyse
-```
+    ```php
+    <?php
 
-- Using **Psalm**:
+    namespace Sikessem\Capsule\Sample;
 
-```bash
-composer inspect
-```
+    final class CustomClass implements CustomInterface
+    {
+        use CustomTrait;
 
-✅ Run unit tests using **PEST**
+        public function __construct(string $name = 'World')
+        {
+            $this->setName($name);
+        }
+    }
+    ```
 
-```bash
-composer test
-```
+    ```php
+    <?php
 
-🐛 Check all code bugs:
+    namespace Sikessem\Capsule\Sample;
 
-```bash
-composer debug
-```
+    use Sikessem\Capsule\Core\HasEncapsulator;
 
-🚀 Fix the entire code:
+    trait CustomTrait
+    {
+        use HasEncapsulator;
 
-```bash
-composer fix
-```
+        protected string $name;
 
-## 📖 Documentation
+        public function getName(): string
+        {
+            return $this->name;
+        }
 
-The full documentation for the Sikessem Values can be found on [this address][docs-link].
+        public function setName(string $name): void
+        {
+            $this->name = $name;
+        }
+    }
+    ```
+
+2. You can use your components as below:
+
+    ```php
+    <?php
+
+    use Sikessem\Capsule\Sample\CustomClass;
+
+    $capsule = new CustomClass('Sikessem');
+
+    isset($capsule->name); // Returns true
+
+    echo $capsule->name; // Prints "Sikessem"
+
+    unset($capsule->name); // Does nothing
+
+    isset($capsule->name); // Returns true
+
+    $capsule->value = 'value'; // Throws an exception
+
+    $capsule->name = 'value'; // Set name to "value"
+
+    echo $capsule->name; // Prints "value"
+
+    $capsule->on('hello', function (?string $name = null) {
+        return 'Hello '.($name ?? 'Sikessem').'!';
+    });
+
+    echo $capsule->hello(); //Prints "Hello Sikessem!"
+    ```
 
 ## 👏 Contribution
 
 The main purpose of this repository is to continue evolving Sikessem. We want to make contributing to this project as easy and transparent as possible, and we are grateful to the community for contributing bug fixes and improvements. Read below to learn how you can take part in improving Sikessem.
 
-### [👷 Code of Conduct][conduct-link]
+## [👷 Code of Conduct][conduct-link]
 
 Sikessem has adopted a Code of Conduct that we expect project participants to adhere to.
 Please read the [full text][conduct-link] so that you can understand what actions will and will not be tolerated.
 
-### 👥 [Contributing Guide][pr-link]
+## 👥 [Contributing Guide][contrib-link]
 
-Read our [**Contributing Guide**][pr-link] to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to Sikessem.
+Read our [**Contributing Guide**][contrib-link] to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes to Sikessem.
 
-### 🔒️ Good First Issues
+## 🔒️ Good First Issues
 
 We have a list of [good first issues][gfi] that contain bugs which have a relatively limited scope. This is a great place to get started, gain experience, and get familiar with our contribution process.
 
-[gfi]: https://github.com/sikessem/values/labels/good%20first%20issue
+[gfi]: https://github.com/sikessem/core/labels/good%20first%20issue
 
-### 💬 Discussions
+## 💬 Discussions
 
 Larger discussions and proposals are discussed in [**Sikessem's GitHub discussions**][discuss-link].
 

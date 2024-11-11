@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Sikessem\Values\Cast;
-use Sikessem\Values\Objects\StringObject;
-use Sikessem\Values\Types\ScalarType;
-use Sikessem\Values\Types\StringType;
+use Sikessem\Cast;
+use Sikessem\Objects\StringObject;
+use Sikessem\Types\ScalarType;
+use Sikessem\Types\StringType;
 
 beforeEach(function () {
     $this->string = Cast::toString('Hello World');

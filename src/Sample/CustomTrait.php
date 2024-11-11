@@ -1,8 +1,8 @@
 <?php
 
-namespace Sikessem\Capsule\Sample;
+namespace Sikessem\Sample;
 
-use Sikessem\Capsule\Core\HasEncapsulator;
+use Sikessem\Concerns\HasEncapsulator;
 
 trait CustomTrait
 {

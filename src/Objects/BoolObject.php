@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Sikessem\Values\Objects;
+namespace Sikessem\Objects;
 
-use Sikessem\Values\Concerns\AsBool;
-use Sikessem\Values\Types\BoolType;
+use Sikessem\Concerns\AsBool;
+use Sikessem\Types\BoolType;
 
 class BoolObject implements BoolType
 {

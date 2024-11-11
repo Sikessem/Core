@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Sikessem\Values\Cast;
-use Sikessem\Values\Objects\ScalarObject;
-use Sikessem\Values\Types\MixedType;
-use Sikessem\Values\Types\ScalarType;
+use Sikessem\Cast;
+use Sikessem\Objects\ScalarObject;
+use Sikessem\Types\MixedType;
+use Sikessem\Types\ScalarType;
 
 beforeEach(function () {
     $this->scalar = Cast::toScalar('Hello World');

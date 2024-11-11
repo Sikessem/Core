@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Sikessem\Values;
+namespace Sikessem;
 
-use Sikessem\Values\Objects\BoolObject;
-use Sikessem\Values\Objects\FloatObject;
-use Sikessem\Values\Objects\IntObject;
-use Sikessem\Values\Objects\MixedObject;
-use Sikessem\Values\Objects\NumberObject;
-use Sikessem\Values\Objects\NumericObject;
-use Sikessem\Values\Objects\ScalarObject;
-use Sikessem\Values\Objects\StringObject;
-use Sikessem\Values\Types\BoolType;
-use Sikessem\Values\Types\FloatType;
-use Sikessem\Values\Types\IntType;
-use Sikessem\Values\Types\MixedType;
-use Sikessem\Values\Types\NumberType;
-use Sikessem\Values\Types\NumericType;
-use Sikessem\Values\Types\ScalarType;
-use Sikessem\Values\Types\StringType;
+use Sikessem\Objects\BoolObject;
+use Sikessem\Objects\FloatObject;
+use Sikessem\Objects\IntObject;
+use Sikessem\Objects\MixedObject;
+use Sikessem\Objects\NumberObject;
+use Sikessem\Objects\NumericObject;
+use Sikessem\Objects\ScalarObject;
+use Sikessem\Objects\StringObject;
+use Sikessem\Types\BoolType;
+use Sikessem\Types\FloatType;
+use Sikessem\Types\IntType;
+use Sikessem\Types\MixedType;
+use Sikessem\Types\NumberType;
+use Sikessem\Types\NumericType;
+use Sikessem\Types\ScalarType;
+use Sikessem\Types\StringType;
 
 class Cast
 {

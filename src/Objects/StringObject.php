@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Sikessem\Values\Objects;
+namespace Sikessem\Objects;
 
-use Sikessem\Values\Concerns\AsString;
-use Sikessem\Values\Types\StringType;
+use Sikessem\Concerns\AsString;
+use Sikessem\Types\StringType;
 
 class StringObject implements StringType
 {

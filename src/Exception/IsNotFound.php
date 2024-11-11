@@ -1,9 +1,7 @@
 <?php
 
-namespace Sikessem\Capsule\Exception;
+namespace Sikessem\Exception;
 
 use Psr\Container\NotFoundExceptionInterface;
 
-interface IsNotFound extends IsException, NotFoundExceptionInterface
-{
-}
+interface IsNotFound extends IsException, NotFoundExceptionInterface {}

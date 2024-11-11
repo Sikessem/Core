@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Sikessem\Values\Types;
+namespace Sikessem\Types;
 
 interface MixedType
 {

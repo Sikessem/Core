@@ -1,6 +1,6 @@
 <?php
 
-namespace Sikessem\Capsule\Exception;
+namespace Sikessem\Exception;
 
 final class UnableToCall extends \BadFunctionCallException implements IsException
 {

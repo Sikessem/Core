@@ -1,6 +1,6 @@
 <?php
 
-namespace Sikessem\Capsule\Support;
+namespace Sikessem\Support;
 
 use Closure;
 use ReflectionClass;
@@ -13,7 +13,7 @@ use ReflectionParameter;
 use ReflectionProperty;
 use ReflectionType;
 use ReflectionUnionType;
-use Sikessem\Capsule\Exception\CannotReflect;
+use Sikessem\Exception\CannotReflect;
 
 final class Reflector
 {
@@ -41,7 +41,7 @@ final class Reflector
         return new ReflectionFunction($function);
     }
 
-    public static function reflectMethod(object|string $object_or_method, string $method = null): ReflectionMethod
+    public static function reflectMethod(object|string $object_or_method, ?string $method = null): ReflectionMethod
     {
         if (is_object($object_or_method) && is_string($method)) {
             return new ReflectionMethod($object_or_method, $method);
@@ -287,11 +287,11 @@ final class Reflector
         }
 
         if ($name === 'void') {
-            return null === $value;
+            return $value === null;
         }
 
         if ($name === 'never') {
-            return null === $value;
+            return $value === null;
         }
 
         if (is_null($value)) {

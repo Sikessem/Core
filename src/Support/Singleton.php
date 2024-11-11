@@ -1,14 +1,12 @@
 <?php
 
-namespace Sikessem\Capsule\Support;
+namespace Sikessem\Support;
 
 final class Singleton
 {
     private static ?Container $container = null;
 
-    private function __construct()
-    {
-    }
+    private function __construct() {}
 
     public static function getContainer(): Container
     {

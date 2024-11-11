@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Sikessem\Values\Cast;
-use Sikessem\Values\Objects\IntObject;
-use Sikessem\Values\Types\IntType;
-use Sikessem\Values\Types\NumberType;
+use Sikessem\Cast;
+use Sikessem\Objects\IntObject;
+use Sikessem\Types\IntType;
+use Sikessem\Types\NumberType;
 
 beforeEach(function () {
     $this->int = Cast::toInt(42);

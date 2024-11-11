@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Sikessem\Values\Objects;
+namespace Sikessem\Objects;
 
-use Sikessem\Values\Concerns\AsInt;
-use Sikessem\Values\Types\IntType;
+use Sikessem\Concerns\AsInt;
+use Sikessem\Types\IntType;
 
 class IntObject implements IntType
 {

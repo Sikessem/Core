@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Sikessem\Values\Objects;
+namespace Sikessem\Objects;
 
-use Sikessem\Values\Concerns\AsNumeric;
-use Sikessem\Values\Types\NumericType;
+use Sikessem\Concerns\AsNumeric;
+use Sikessem\Types\NumericType;
 
 class NumericObject implements NumericType
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Sikessem\Values\Objects;
+namespace Sikessem\Objects;
 
-use Sikessem\Values\Concerns\AsFloat;
-use Sikessem\Values\Types\FloatType;
+use Sikessem\Concerns\AsFloat;
+use Sikessem\Types\FloatType;
 
 class FloatObject implements FloatType
 {

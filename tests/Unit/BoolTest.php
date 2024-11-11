@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Sikessem\Values\Cast;
-use Sikessem\Values\Objects\BoolObject;
-use Sikessem\Values\Types\BoolType;
-use Sikessem\Values\Types\ScalarType;
+use Sikessem\Cast;
+use Sikessem\Objects\BoolObject;
+use Sikessem\Types\BoolType;
+use Sikessem\Types\ScalarType;
 
 beforeEach(function () {
     $this->bool = Cast::toBool(true);

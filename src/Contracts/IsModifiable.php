@@ -1,8 +1,8 @@
 <?php
 
-namespace Sikessem\Capsule\Core;
+namespace Sikessem\Contracts;
 
-use Sikessem\Capsule\Exception\IsNotFound;
+use Sikessem\Exception\IsNotFound;
 
 interface IsModifiable
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Sikessem\Values\Concerns;
+namespace Sikessem\Concerns;
 
-use Sikessem\Values\Types\ScalarType;
+use Sikessem\Types\ScalarType;
 
 trait AsBool
 {

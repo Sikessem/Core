@@ -1,6 +1,6 @@
 <?php
 
-namespace Sikessem\Capsule\Exception;
+namespace Sikessem\Exception;
 
 final class NotFound extends \InvalidArgumentException implements IsNotFound
 {

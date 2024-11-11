@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Sikessem\Values\Objects;
+namespace Sikessem\Objects;
 
-use Sikessem\Values\Concerns\AsMixed;
-use Sikessem\Values\Types\MixedType;
+use Sikessem\Concerns\AsMixed;
+use Sikessem\Types\MixedType;
 
 class MixedObject implements MixedType
 {

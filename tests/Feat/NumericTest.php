@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Sikessem\Values\Cast;
-use Sikessem\Values\Objects\NumericObject;
-use Sikessem\Values\Types\NumericType;
-use Sikessem\Values\Types\ScalarType;
+use Sikessem\Cast;
+use Sikessem\Objects\NumericObject;
+use Sikessem\Types\NumericType;
+use Sikessem\Types\ScalarType;
 
 beforeEach(function () {
     $this->numeric = Cast::toNumeric('84.21');

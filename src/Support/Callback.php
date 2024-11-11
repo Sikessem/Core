@@ -1,9 +1,9 @@
 <?php
 
-namespace Sikessem\Capsule\Support;
+namespace Sikessem\Support;
 
 use Closure;
-use Sikessem\Capsule\Exception\UnableToCall;
+use Sikessem\Exception\UnableToCall;
 
 final class Callback
 {

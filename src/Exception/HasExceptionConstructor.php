@@ -1,17 +1,17 @@
 <?php
 
-namespace Sikessem\Capsule\Exception;
+namespace Sikessem\Exception;
 
 use Throwable;
 
 trait HasExceptionConstructor
 {
-    abstract public function __construct(string $message = '', int $code = 0, Throwable $previous = null);
+    abstract public function __construct(string $message = '', int $code = 0, ?Throwable $previous = null);
 
     /**
      * @param  array<string|int>  $arguments
      */
-    public static function with(string $message = '', array $arguments = [], int $code = 0, Throwable $previous = null): Throwable
+    public static function with(string $message = '', array $arguments = [], int $code = 0, ?Throwable $previous = null): Throwable
     {
         if ($arguments !== []) {
             $message = sprintf($message, ...$arguments);

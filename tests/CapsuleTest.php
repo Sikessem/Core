@@ -1,14 +1,14 @@
 <?php
 
-namespace Sikessem\Capsule\Tests;
+namespace Sikessem\Tests;
 
-use Sikessem\Capsule\Core\IsAccessible;
-use Sikessem\Capsule\Core\IsEncapsulated;
-use Sikessem\Capsule\Core\IsModifiable;
-use Sikessem\Capsule\Core\IsResolvable;
-use Sikessem\Capsule\Exception\NotFound;
-use Sikessem\Capsule\Sample\CustomClass;
-use Sikessem\Capsule\Support\Container;
+use Sikessem\Contracts\IsAccessible;
+use Sikessem\Contracts\IsEncapsulated;
+use Sikessem\Contracts\IsModifiable;
+use Sikessem\Contracts\IsResolvable;
+use Sikessem\Exception\NotFound;
+use Sikessem\Sample\CustomClass;
+use Sikessem\Support\Container;
 
 beforeEach(function () {
     $this->capsule = new CustomClass('Sikessem');
@@ -23,7 +23,7 @@ it('should be encapsulated', function () {
 });
 
 it('should be resolvable', function () {
-    $hello = fn (string $name = null) => 'Hello '.($name ?? 'Sikessem').'!';
+    $hello = fn (?string $name = null) => 'Hello '.($name ?? 'Sikessem').'!';
     CustomClass::onStatic('hello', $hello);
     $this->capsule->on('hello', $hello);
 
@@ -61,7 +61,7 @@ it('should provide the components', function () {
             'name' => 'Sikessem',
             'year' => date('Y'),
         ],
-        CustomInterface::class => new CustomClass(),
+        CustomInterface::class => new CustomClass,
     ]);
 
     expect($c)->toBeInstanceOf(Container::class);

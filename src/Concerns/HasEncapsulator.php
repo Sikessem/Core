@@ -1,6 +1,6 @@
 <?php
 
-namespace Sikessem\Capsule\Core;
+namespace Sikessem\Concerns;
 
 trait HasEncapsulator
 {

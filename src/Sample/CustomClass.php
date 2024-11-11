@@ -1,6 +1,6 @@
 <?php
 
-namespace Sikessem\Capsule\Sample;
+namespace Sikessem\Sample;
 
 final class CustomClass implements CustomInterface
 {

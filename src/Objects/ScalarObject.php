@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Sikessem\Values\Objects;
+namespace Sikessem\Objects;
 
-use Sikessem\Values\Concerns\AsScalar;
-use Sikessem\Values\Types\ScalarType;
+use Sikessem\Concerns\AsScalar;
+use Sikessem\Types\ScalarType;
 
 class ScalarObject implements ScalarType
 {

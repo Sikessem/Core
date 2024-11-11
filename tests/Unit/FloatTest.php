@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Sikessem\Values\Cast;
-use Sikessem\Values\Objects\FloatObject;
-use Sikessem\Values\Types\FloatType;
-use Sikessem\Values\Types\NumberType;
+use Sikessem\Cast;
+use Sikessem\Objects\FloatObject;
+use Sikessem\Types\FloatType;
+use Sikessem\Types\NumberType;
 
 beforeEach(function () {
     $this->float = Cast::toFloat(84.21);

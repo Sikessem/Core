@@ -1,10 +1,10 @@
 <?php
 
-namespace Sikessem\Capsule\Core;
+namespace Sikessem\Concerns;
 
-use Sikessem\Capsule\Exception\NotFound;
-use Sikessem\Capsule\Support\Reflector;
-use Sikessem\Capsule\Support\Singleton;
+use Sikessem\Exception\NotFound;
+use Sikessem\Support\Reflector;
+use Sikessem\Support\Singleton;
 
 trait HasAccessor
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Sikessem\Capsule\Sample;
+namespace Sikessem\Sample;
 
-use Sikessem\Capsule\Core\IsEncapsulated;
+use Sikessem\Contracts\IsEncapsulated;
 
 interface CustomInterface extends IsEncapsulated
 {

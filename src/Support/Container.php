@@ -1,13 +1,13 @@
 <?php
 
-namespace Sikessem\Capsule\Support;
+namespace Sikessem\Support;
 
 use Psr\Container\ContainerInterface;
 use ReflectionFunction;
 use ReflectionFunctionAbstract;
 use ReflectionMethod;
-use Sikessem\Capsule\Exception\BadValue;
-use Sikessem\Capsule\Exception\NotFound;
+use Sikessem\Exception\BadValue;
+use Sikessem\Exception\NotFound;
 
 final class Container implements ContainerInterface
 {
@@ -221,7 +221,7 @@ final class Container implements ContainerInterface
     /**
      * @param  mixed[]  $args
      */
-    public function invokeFunctionArgs(ReflectionFunction|ReflectionMethod $func, array $args = [], object $object = null): mixed
+    public function invokeFunctionArgs(ReflectionFunction|ReflectionMethod $func, array $args = [], ?object $object = null): mixed
     {
         $args = $this->buildFunctionArgs($func, $args);
 

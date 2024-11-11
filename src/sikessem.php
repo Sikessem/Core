@@ -1,6 +1,9 @@
-<?php namespace Sikessem;
+<?php
 
-function map(string $key_type, string $value_type): Map {
+namespace Sikessem;
 
-  return new Map($key_type, $value_type);
+function map(string $key_type, string $value_type): Map
+{
+
+    return new Map($key_type, $value_type);
 }

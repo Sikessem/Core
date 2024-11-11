@@ -1,8 +1,12 @@
-<?php namespace Sikessem;
+<?php
 
-class Error extends \Exception {
+namespace Sikessem;
 
-  public const INVALID_TYPE = 0x00001;
-  public const INVALID_KEY = 0x00002;
-  public const INVALID_VALUE = 0x00003;
+class Error extends \Exception
+{
+    public const INVALID_TYPE = 0x00001;
+
+    public const INVALID_KEY = 0x00002;
+
+    public const INVALID_VALUE = 0x00003;
 }

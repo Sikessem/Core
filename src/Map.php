@@ -1,49 +1,67 @@
-<?php namespace Sikessem;
+<?php
 
-class Map {
+namespace Sikessem;
 
-  public function __construct(string $keys_type, string $values_type) {
+class Map
+{
+    public function __construct(string $keys_type, string $values_type)
+    {
 
-    $keys_type = Filter::sanitize($keys_type);
-    if(!Filter::validate($keys_type)) throw new Error("Unknown type $keys_type", Error::INVALID_TYPE);
-    $this->keys_type = $keys_type;
+        $keys_type = Filter::sanitize($keys_type);
+        if (! Filter::validate($keys_type)) {
+            throw new Error("Unknown type $keys_type", Error::INVALID_TYPE);
+        }
+        $this->keys_type = $keys_type;
 
-    $values_type = Filter::sanitize($values_type);
-    if(!Filter::validate($values_type)) throw new Error("Unknown type $values_type", Error::INVALID_TYPE);
-    $this->values_type = $values_type;
-  }
+        $values_type = Filter::sanitize($values_type);
+        if (! Filter::validate($values_type)) {
+            throw new Error("Unknown type $values_type", Error::INVALID_TYPE);
+        }
+        $this->values_type = $values_type;
+    }
 
-  protected int $count = 0;
+    protected int $count = 0;
 
-  protected string $keys_type;
-  protected array $keys_list = [];
+    protected string $keys_type;
 
-  protected string $values_type;
-  protected array $values_list = [];
+    protected array $keys_list = [];
 
-  public function set(mixed $key, mixed $value): static {
+    protected string $values_type;
 
-    $key_type = Filter::sanitize(gettype($key));
-    if($key_type !== 'mixed' && $key_type !== $this->keys_type) throw new Error("Invalid key type ($key_type) given", Error::INVALID_KEY);
+    protected array $values_list = [];
 
-    $value_type = Filter::sanitize(gettype($value));
-    if($value_type !== 'mixed' && $value_type !== $this->values_type) throw new Error("Invalid value type ($value_type) given", Error::INVALID_VALUE);
+    public function set(mixed $key, mixed $value): static
+    {
 
-    if(false === ($index = array_search($key, $this->keys_list, true))) $index = $this->count++;
+        $key_type = Filter::sanitize(gettype($key));
+        if ($key_type !== 'mixed' && $key_type !== $this->keys_type) {
+            throw new Error("Invalid key type ($key_type) given", Error::INVALID_KEY);
+        }
 
-    $this->keys_list[$index] = $key;
-    $this->values_list[$index] = $value;
+        $value_type = Filter::sanitize(gettype($value));
+        if ($value_type !== 'mixed' && $value_type !== $this->values_type) {
+            throw new Error("Invalid value type ($value_type) given", Error::INVALID_VALUE);
+        }
 
-    return $this;
-  }
+        if (false === ($index = array_search($key, $this->keys_list, true))) {
+            $index = $this->count++;
+        }
 
-  public function get(mixed $key): mixed {
+        $this->keys_list[$index] = $key;
+        $this->values_list[$index] = $value;
 
-    return false === ($index = array_search($key, $this->keys_list, true))? null: $this->values_list[$index];
-  }
+        return $this;
+    }
 
-  public function has(mixed $key): bool {
+    public function get(mixed $key): mixed
+    {
 
-    return in_array($key, $this->keys_list, true);
-  }
+        return false === ($index = array_search($key, $this->keys_list, true)) ? null : $this->values_list[$index];
+    }
+
+    public function has(mixed $key): bool
+    {
+
+        return in_array($key, $this->keys_list, true);
+    }
 }

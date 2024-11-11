@@ -1,12 +1,20 @@
-<?php namespace Sikessem;
+<?php
 
-class Type {
+namespace Sikessem;
 
-  public const BOOLEAN = 'boolean';
-  public const INTEGER = 'integer';
-  public const DOUBLE = 'double';
-  public const STRING = 'string';
-  public const ARRAY = 'array';
-  public const OBJECT = 'object';
-  public const RESOURCE = 'resource';
+class Type
+{
+    public const BOOLEAN = 'boolean';
+
+    public const INTEGER = 'integer';
+
+    public const DOUBLE = 'double';
+
+    public const STRING = 'string';
+
+    public const ARRAY = 'array';
+
+    public const OBJECT = 'object';
+
+    public const RESOURCE = 'resource';
 }

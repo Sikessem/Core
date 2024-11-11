@@ -9,6 +9,10 @@
         "sikessem",
         "core",
         "capsule",
+        "object",
+        "values",
+        "value-object",
+        "array-object",
         "encapsulation",
         "accessor",
         "mutator",
@@ -32,7 +36,7 @@
         {
             "name": "SIGUI Kessé Emmanuel",
             "email": "siguici@proton.me",
-            "homepage": "https://github.com/siguici"
+            "homepage": "https://siguici.deno.dev"
         }
     ],
     "support": {
@@ -50,8 +54,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Sikessem\\": "src/"
-        }
+            "Sikessem\\": "src/",
+            "SIKessEm\\ArrayObject\\": "lib/"
+        },
+        "files": [
+            "ext/sikessem-array_object.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -91,6 +99,8 @@
         }
     },
     "config": {
+        "bin-dir": "vendor/bin",
+    	"vendor-dir": "vendor",
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,

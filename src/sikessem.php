@@ -1,4 +1,4 @@
-<?php namespace SIKessEm\ArrayObject;
+<?php namespace Sikessem;
 
 function map(string $key_type, string $value_type): Map {
 

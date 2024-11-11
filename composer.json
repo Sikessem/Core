@@ -54,11 +54,10 @@
     },
     "autoload": {
         "psr-4": {
-            "Sikessem\\": "src/",
-            "SIKessEm\\ArrayObject\\": "lib/"
+            "Sikessem\\": "src/"
         },
         "files": [
-            "ext/sikessem-array_object.php"
+            "src/sikessem.php"
         ]
     },
     "autoload-dev": {

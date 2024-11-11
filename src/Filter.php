@@ -1,4 +1,4 @@
-<?php namespace SIKessEm\ArrayObject;
+<?php namespace Sikessem;
 
 class Filter {
 

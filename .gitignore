@@ -11,6 +11,7 @@ out/
 Homestead.json
 Homestead.yaml
 *.local
+.phpactor.json
 
 # Environment
 .env

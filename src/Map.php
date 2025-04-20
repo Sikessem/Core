@@ -24,10 +24,16 @@ class Map
 
     protected string $keys_type;
 
+    /**
+     * @var array<array-key,mixed>
+     */
     protected array $keys_list = [];
 
     protected string $values_type;
 
+    /**
+     * @var array<array-key,mixed>
+     */
     protected array $values_list = [];
 
     public function set(mixed $key, mixed $value): static
